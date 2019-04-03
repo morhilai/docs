@@ -8,17 +8,17 @@ namespace Raven.Documentation.Samples.ClientApi.Session
         private interface IFoo
         {
             #region store_entities_1
-            //First overloaded version: 
+            //First overload: 
             //stores the entity in a session 
             //generates a new ID if none exists
             //extracts the ID from the entity if it already exists.
             void Store(object entity);
 
-            //Second overloaded version: 
+            //Second overload: 
             //stores the entity in a session with a given ID.
             void Store(object entity, string id);
 
-            //Third overloaded version: 
+            //Third overload: 
             //stores the entity in a session with a given ID
             //forces a concurrency check with a given change vector.
             void Store(object entity, string changeVector, string id);

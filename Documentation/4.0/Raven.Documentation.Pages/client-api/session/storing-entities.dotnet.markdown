@@ -34,17 +34,17 @@ The three overloaded `Store` methods:
 
 ## Related Articles
 
-### Session
+### Client API
 
 - [What is a Session and How Does it Work](../../client-api/session/what-is-a-session-and-how-does-it-work) 
 - [Opening a Session](../../client-api/session/opening-a-session)
 - [Loading Entities](../../client-api/session/loading-entities)
 - [Saving Changes](../../client-api/session/saving-changes)
 
-### Querying
+### Indexes
 
-- [Basics](../../indexes/querying/basics)
+- [Querying Basics](../../indexes/querying/basics)
 
-### Document Store
+### Getting Started
 
 - [What is a Document Store](../../client-api/what-is-a-document-store)
