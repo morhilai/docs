@@ -13,10 +13,14 @@ namespace Raven.Documentation.Samples.ClientApi.Session
         {
             #region deleting_1
 
+            //Delete an entity of type `T`
             void Delete<T>(T entity);
 
+            //Delete the entity with given id
             void Delete(string id);
 
+            //Delete the entity with given id
+            //TODO
             void Delete(string id, string expectedChangeVector);
 
             #endregion

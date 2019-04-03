@@ -4,12 +4,15 @@ Entities can be marked for deletion by using the `Delete` method, but will not b
 
 ## Syntax
 
+The three overloads of delete:
+
 {CODE deleting_1@ClientApi\Session\DeletingEntities.cs /}
 
-| Parameters | | |
+| Parameter | Type | Description |
 | ------------- | ------------- | ----- |
-| **entity** or **id** | T or string | instance of the entity to delete or entity ID |
-| **expectedChangeVector** | string | a change vector to use for concurrency checks |
+| **entity** | `T` - the class of the entity | Instance of an entity to be deleted |
+| **id** | string | Id of an entity to be deleted |
+| **expectedChangeVector** | string | The change vector to be used for a concurrency check |
 
 ## Example I
 
