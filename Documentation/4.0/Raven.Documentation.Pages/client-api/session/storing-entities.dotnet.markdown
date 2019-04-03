@@ -1,31 +1,36 @@
 # Session : Storing Entities
+---
+{NOTE: }
 
-To store entities inside the **session** object, use one of the three `Store` methods.
+* To store an entity in the **session** object, use one of the three overloaded `Store` methods.
 
-## Syntax
+* The session will track all changes made to the entity (within the `using` statement).
 
-First overload: Stores the entity in a session, then extracts the ID from the entity or generates a new one if it's not available.
+* The entity and any changes made to it will be saved to the database as a new document upon next call to `SaveChanges()`.
+
+* In this page:
+  * [Syntax](../../client-api/session/storing-entities#syntax)
+  * [Example - Store Entity](../../client-api/session/storing-entities#example---store-entity)
+{NOTE/}
+
+---
+{PANEL:Syntax}
+
+The three overloaded `Store` methods:
 
 {CODE store_entities_1@ClientApi\Session\StoringEntities.cs /}
 
-Second overload: Stores the entity in a session with given ID.
+| Parameters | Type | Description |
+| --- | --- | --- |
+| **entity** | object | The entity to be stored |
+| **changeVector** | string | An entity changeVector, used for concurrency checks (`null` to skip check) |
+| **id** | string | An entity ID (`null` to generate automatically) |
+{PANEL/}
 
-{CODE store_entities_2@ClientApi\Session\StoringEntities.cs /}
-
-Third overload: Stores the entity in a session with given ID, forces concurrency check with given change vector.
-
-{CODE store_entities_3@ClientApi\Session\StoringEntities.cs /}
-
-
-| Parameters | | |
-| ------------- | ------------- | ----- |
-| **entity** | object | Entity that will be stored |
-| **changeVector** | string | Entity changeVector, used for concurrency checks (`null` to skip check) |
-| **id** | string | Entity will be stored under this ID, (`null` to generate automatically) |
-
-## Example
+{PANEL:Example - Store Entity}
 
 {CODE store_entities_5@ClientApi\Session\StoringEntities.cs /}
+{PANEL/}
 
 ## Related Articles
 

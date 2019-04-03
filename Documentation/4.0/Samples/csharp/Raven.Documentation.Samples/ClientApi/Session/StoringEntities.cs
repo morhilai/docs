@@ -8,14 +8,19 @@ namespace Raven.Documentation.Samples.ClientApi.Session
         private interface IFoo
         {
             #region store_entities_1
+            //First overloaded version: 
+            //stores the entity in a session 
+            //generates a new ID if none exists
+            //extracts the ID from the entity if it already exists.
             void Store(object entity);
-            #endregion
 
-            #region store_entities_2
+            //Second overloaded version: 
+            //stores the entity in a session with a given ID.
             void Store(object entity, string id);
-            #endregion
 
-            #region store_entities_3
+            //Third overloaded version: 
+            //stores the entity in a session with a given ID
+            //forces a concurrency check with a given change vector.
             void Store(object entity, string changeVector, string id);
             #endregion
 
@@ -25,20 +30,20 @@ namespace Raven.Documentation.Samples.ClientApi.Session
         {
             using (var store = new DocumentStore())
             {
+                #region store_entities_5                
                 using (var session = store.OpenSession())
                 {
-                    #region store_entities_5
-                    // generate Id automatically
+                    //Store an entity and generate Id automatically
                     session.Store(new Employee
                     {
                         FirstName = "John",
                         LastName = "Doe"
                     });
 
-                    // send all pending operations to server, in this case only `Put` operation
+                    //Send accumulated operations to server
                     session.SaveChanges();
-                    #endregion
                 }
+                #endregion
             }
         }
     }
