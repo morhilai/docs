@@ -33,14 +33,20 @@ namespace Raven.Documentation.Samples.ClientApi.Session
                 #region store_entities_5                
                 using (var session = store.OpenSession())
                 {
-                    //Store an entity and generate Id automatically
-                    session.Store(new Employee
+                    //Create a new entity
+                    Employee employee = new Employee
                     {
                         FirstName = "John",
                         LastName = "Doe"
-                    });
+                    };
 
-                    //Send accumulated operations to server
+                    //Store the entity and generate an ID automatically
+                    session.Store(employee);
+
+                    //Save the newly generated ID for client-side use
+                    string NewEmployeeId = employee.Id;
+
+                    //Send the entity to the server
                     session.SaveChanges();
                 }
                 #endregion

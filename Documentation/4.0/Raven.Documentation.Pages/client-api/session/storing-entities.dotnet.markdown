@@ -28,7 +28,6 @@ The three overloads of `Store`:
 {PANEL/}
 
 {PANEL:Example - Store Entity}
-
 {CODE store_entities_5@ClientApi\Session\StoringEntities.cs /}
 {PANEL/}
 
