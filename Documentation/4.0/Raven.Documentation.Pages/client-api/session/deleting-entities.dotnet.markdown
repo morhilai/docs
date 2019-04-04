@@ -1,10 +1,22 @@
 # Session : Deleting Entities
+---
+{NOTE: }
 
-Entities can be marked for deletion by using the `Delete` method, but will not be removed from the server until `SaveChanges` is called.
+* To mark an entity for deletion, use one of the three overloaded `Delete` methods.  
 
-## Syntax
+* The server will not receive the instruction to delete the corresponding document until `SaveChanges()` is called.  
 
-The three overloads of delete:
+* In this page:  
+  * [Syntax](../../client-api/session/deleting-entities#syntax)  
+  * [Examples - Delete Document](../../client-api/session/deleting-entities#examples---delete-document)  
+    * [With a Known Change Vector](../../client-api/session/deleting-entities#deleting-a-document-with-a-known-change-vector)
+    * [Without a Known Change Vector](../../client-api/session/deleting-entities#deleting-a-document-without-a-known-change-vector)
+{NOTE/}
+
+---
+{PANEL:Syntax}
+
+The three overloads of `Delete`:
 
 {CODE deleting_1@ClientApi\Session\DeletingEntities.cs /}
 
@@ -13,60 +25,44 @@ The three overloads of delete:
 | **entity** | `T` - the class of the entity | Instance of an entity to be deleted |
 | **id** | string | Id of an entity to be deleted |
 | **expectedChangeVector** | string | The change vector to be used for a concurrency check |
+{PANEL/}
 
-## Example I
+{PANEL:Examples - Delete Document}
+
+####Deleting a Document With a Known Change Vector:  
 
 {CODE-TABS}
 {CODE-TAB:csharp:Sync deleting_2@ClientApi\Session\DeletingEntities.cs /}
 {CODE-TAB:csharp:Async deleting_2_async@ClientApi\Session\DeletingEntities.cs /}
 {CODE-TABS/}
 
-{NOTE: Concurrency on Delete}
-If UseOptimisticConcurrency is set to 'true' (default 'false'), the Delete() method will use loaded 'employees/1' change vector for concurrency check and might throw ConcurrencyException.
-{NOTE/}
+If `UseOptimisticConcurrency` is set to `true`, Delete will use the change vector loaded with `"employees/1"` for a concurrency check and might throw a `ConcurrencyException`.  
 
-## Example II
+By default, `UseOptimisticConcurrency` is set to `false`; in the event of a concurrency conflict, the write operation with the most recent time stamp takes effect (Last Write Wins strategy).  
+<br/>
+####Deleting a Document Without a Known Change Vector:  
 
 {CODE-TABS}
 {CODE-TAB:csharp:Sync deleting_3@ClientApi\Session\DeletingEntities.cs /}
 {CODE-TAB:csharp:Async deleting_3_async@ClientApi\Session\DeletingEntities.cs /}
 {CODE-TABS/}
 
-{NOTE: Concurrency on Delete}
-In this overload, the Delete() method will not do any change vector based concurrency checks because the change vector for 'employees/1' is unknown.
-{NOTE/}
-
-{INFO:Information}
-
-If entity is **not** tracked by session, then executing
-
-{CODE deleting_4@ClientApi\Session\DeletingEntities.cs /}
-
-is equal to doing
-
-{CODE deleting_5@ClientApi\Session\DeletingEntities.cs /}
-
-{NOTE: Change Vector in DeleteCommandData}
-In this sample the change vector is null - this means that there will be no concurrency checks. A non-null and valid change vector value will trigger a concurrency check. 
-{NOTE/}
-
-You can read more about defer operations [here](./how-to/defer-operations).
-
-{INFO/}
+In this overload, regardless of whether optimistic concurrency is being used, `Delete` will not do any change vector based concurrency checks because the change vector for `"employees/1"` isn't known.  
+{PANEL/}
 
 ## Related Articles
 
-### Session
+### Client API
 
 - [What is a Session and How Does it Work](../../client-api/session/what-is-a-session-and-how-does-it-work) 
 - [Opening a Session](../../client-api/session/opening-a-session)
 - [Loading Entities](../../client-api/session/loading-entities)
 - [Saving Changes](../../client-api/session/saving-changes)
 
-### Querying
+### Indexes
 
-- [Basics](../../indexes/querying/basics)
+- [Querying Basics](../../indexes/querying/basics)
 
-### Document Store
+### Getting Started
 
 - [What is a Document Store](../../client-api/what-is-a-document-store)
