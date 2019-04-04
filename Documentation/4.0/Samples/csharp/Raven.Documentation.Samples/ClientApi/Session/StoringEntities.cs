@@ -9,9 +9,9 @@ namespace Raven.Documentation.Samples.ClientApi.Session
         {
             #region store_entities_1
             //First overload: 
-            //stores the entity in a session 
+            //stores the entity in a session
             //generates a new ID if none exists
-            //extracts the ID from the entity if it already exists.
+            //if ID already exists, extracts the ID from the entity 
             void Store(object entity);
 
             //Second overload: 

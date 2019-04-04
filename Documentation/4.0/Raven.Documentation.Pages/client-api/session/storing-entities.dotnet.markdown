@@ -2,11 +2,11 @@
 ---
 {NOTE: }
 
-* To store an entity in the **session** object, use one of the three overloaded `Store` methods.
+* To store an entity in a session, use one of the three overloaded `Store` methods.
 
-* The session will track all changes made to the entity (within the `using` statement).
+* That session will track all changes made to the entity.
 
-* The entity and any changes made to it will be saved to the database as a new document upon next call to `SaveChanges()`.
+* The entity, and any changes made to it, will be saved to the database as a new document upon next call to `SaveChanges()`.
 
 * In this page:
   * [Syntax](../../client-api/session/storing-entities#syntax)
@@ -16,11 +16,11 @@
 ---
 {PANEL:Syntax}
 
-The three overloaded `Store` methods:
+The three overloads of `Store`:
 
 {CODE store_entities_1@ClientApi\Session\StoringEntities.cs /}
 
-| Parameters | Type | Description |
+| Parameter | Type | Description |
 | --- | --- | --- |
 | **entity** | object | The entity to be stored |
 | **changeVector** | string | An entity changeVector, used for concurrency checks (`null` to skip check) |
