@@ -2,7 +2,7 @@
 ---
 {NOTE: }
 
-*To load a document bl\aaaaaaaaaaaaaaaa  from the database, a variety of methods with many overloads are available.
+*To load a document  from the database, a variety of methods with many overloads are available.
 
 
 
