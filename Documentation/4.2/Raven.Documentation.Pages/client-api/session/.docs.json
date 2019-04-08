@@ -60,6 +60,16 @@
         ]
     },
     {
+        "Path": "session-advanced-properties.markdown",
+        "Name": "Session.Advanced Properties",
+        "Mappings": [
+            {
+                "Version": 1.0,
+                "Key": "client-api/basic-operations/session-advanced-properties"
+            }
+        ]
+    },
+    {
         "Path": "/querying",
         "Name": "Querying",
         "Mappings": []
