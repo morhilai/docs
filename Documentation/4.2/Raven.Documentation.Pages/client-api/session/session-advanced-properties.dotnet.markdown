@@ -7,7 +7,7 @@ The session.Advanced properties
 | [Clear](../../client-api/session/how-to/clear-a-session) | void | Removes all entities from the delete queue and stops tracking changes for all entities |
 | [Defer](../../client-api/session/how-to/defer-operations) | void | Defer commands to be executed on `SaveChanges()` |
 | [DocumentQuery<>](../../client-api/session/querying/document-query/what-is-document-query) | IDocumentQuery<T> | Query the specified index using Lucene syntax |
-| Evict<> | void | Removes the specified entity from the delete queue and stops tracking changes for that entity |
+| [Evict<>](../../client-api/session/how-to/evict-entity-from-a-session) | void | Removes the specified entity from the delete queue and stops tracking changes for that entity |
 | Exists | boolean | Checks whether a document exists in the database |
 | GetChangeVectorFor<> | string | Gets the current change-vector for the specified entity. Throws an exception if the entity is not tracked by the session. |
 | GetCountersFor<> | List<string> | Gets all the counter names for the specified entity. Throws an exception if the entity is not tracked by the session. |
