@@ -2,20 +2,21 @@
 ---
 {NOTE: }
 
-*To load a document  from the database, a variety of methods with many overloads are available.
+* There are multiple overloaded methods for loading documents from the database.  
+[//]: <> "send or persist?"
+* Loading a document converts it to an entity on the client side and adds it to the internal entity map. The session will track any changes made to the entity and send them to the 
+server when `SaveChanges()` is called.  
 
-
-
-There are various methods with many overloads that allow users to download documents from a database and convert them to entities. This article will cover the following methods:
-
-- [Load](../../client-api/session/loading-entities#load)
-- [Load with Includes](../../client-api/session/loading-entities#load-with-includes)
-- [Load - multiple entities](../../client-api/session/loading-entities#load---multiple-entities)
-- [LoadStartingWith](../../client-api/session/loading-entities#loadstartingwith)
-- [Stream](../../client-api/session/loading-entities#stream)
-- [IsLoaded](../../client-api/session/loading-entities#isloaded)
+* In this page:
+  - [Load](../../client-api/session/loading-entities#load)
+  - [Load with Includes](../../client-api/session/loading-entities#load-with-includes)
+  - [Load - multiple entities](../../client-api/session/loading-entities#load---multiple-entities)
+  - [LoadStartingWith](../../client-api/session/loading-entities#loadstartingwith)
+  - [Stream](../../client-api/session/loading-entities#stream)
+  - [IsLoaded](../../client-api/session/loading-entities#isloaded)
 {NOTE/}
 
+---
 {PANEL:Load}
 
 The most basic way to load documents is to use one of the overloaded `Load` methods.
@@ -27,14 +28,13 @@ The most basic way to load documents is to use one of the overloaded `Load` meth
 
 | Parameter | Type | Description |
 | ------------- | ------------- | ----- |
-| **id** | string | Id of a document to be loaded |
-| **ids** | IEnumerable<string> | Enumerable of Ids of documents to be loaded |
+| **id** | string | Id of a document to load |
 | **includes** | IIncludeBuilder<T> | An action that specifies which documents and\or counters to include, by using the IIncludeBuilder interface |
 | **token** | CancellationToken | Propagates notification that operations should be canceled |
 
 | Return Value | Description |
 | ------------- | ----- |
-| TResult | Entity of type TResult, or `null` if a document with the given ID does not exist |
+| T | Entity of type T, or `null` if a document with the given ID does not exist |
 | Dictionary<string, T> | Dictionary with document Id, entity of type T key-value pairs |
 | Task<> | An asynchronous operation that can return a value |
 
@@ -46,7 +46,7 @@ The most basic way to load documents is to use one of the overloaded `Load` meth
 {CODE-TABS/} 
 
 {NOTE: Migration From 3.x}
-In 4.x RavenDB, only string identifiers are supported. This is a major breaking change from 3.x which supported non-string identifiers. 
+In 4.x RavenDB, only string identifiers are supported. This is a significant breaking change from 3.x which supported non-string identifiers. 
 {NOTE/}
 
 {PANEL/}
@@ -94,7 +94,7 @@ To load multiple entities at once, use one of the following `Load` overloads.
 
 | Parameters | | |
 | ------------- | ------------- | ----- |
-| **ids** | IEnumerable<string> | Multiple document identifiers to load |
+| **ids** | IEnumerable<string> | IEnumerable of the ids of the documents to load |
 
 | Return Value | |
 | ------------- | ----- |
