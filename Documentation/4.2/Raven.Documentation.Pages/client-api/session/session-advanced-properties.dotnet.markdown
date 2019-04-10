@@ -17,13 +17,13 @@ The session.Advanced properties
 | GetMetadataFor<> | IMetadataDictionary | Gets the metadata for the specified entity. Throws an exception if the entity is not tracked by the session. |
 | HasChanged | boolean | Determines whether the specified entity has changed |
 | IgnoreChangesFor | void | Stops change tracking for the specified entity and skips it when `SaveChanges` is called |
-| Increment<> | void | _**TODO**_ |
+| Increment<> | void | Without loading a document from the server into the session, sends a request to increment the specified field in the specified document by a given value. If the field is a string the given value will be concatenated onto the field's current value. Request is sent when `SaveChanges()` is called. | |
 | IsLoaded | boolean | Checks whether a document with the specified id is loaded in the current session |
 | LoadIntoStream | void | Loads the entities with the specified ids directly into a given stream |
 | LoadStartingWith<> | T[] | Loads multiple entities that contain the specified prefix |
 | LoadStartingWithIntoStream | void | Loads multiple entities that contain the specified prefix into a given stream |
-| Patch<> |
-| RawQuery<>
+| Patch<> | Without loading a document from the server into the session, sends a request to modify the specified field in the specified document according to a given lambda expression. Request is sent when `SaveChanges()` is called. |
+| RawQuery<> | void | Query the specified index using provided raw query |
 | Refresh<>
 | SetTransactionMode
 | Stream<>
