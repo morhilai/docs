@@ -8,18 +8,18 @@ The session.Advanced properties
 | [Defer](../../client-api/session/how-to/defer-operations) | void | Defer commands to be executed on `SaveChanges()` |
 | [DocumentQuery<>](../../client-api/session/querying/document-query/what-is-document-query) | IDocumentQuery<T> | Query the specified index using Lucene syntax |
 | [Evict<>](../../client-api/session/how-to/evict-entity-from-a-session) | void | Removes the specified entity from the delete queue and stops tracking changes for that entity |
-| Exists | boolean | Checks whether a document exists in the database |
-| GetChangeVectorFor<> | string | Gets the current change-vector for the specified entity. Throws an exception if the entity is not tracked by the session. |
-| GetCountersFor<> | List<string> | Gets all the counter names for the specified entity. Throws an exception if the entity is not tracked by the session. |
-| GetCurrentSessionNode | Task<ServerNode> | Gets the server node this session is associated with, as determined by the read balance behavior |
-| GetDocumentId | string | Gets the document id for the specified entity. May return `null` if the entity is not tracked by the session, or if the entity doesn't have an id yet |
-| GetLastModifiedFor<> | DateTime? | Gets last modified date for the specified entity. Throws an exception if the entity is not tracked by the session. |
-| GetMetadataFor<> | IMetadataDictionary | Gets the metadata for the specified entity. Throws an exception if the entity is not tracked by the session. |
-| HasChanged * boolean | Determines whether the specified entity has changed |
-| IgnoreChangesFor | void | Stops change tracking for the specified entity and skips it when `SaveChanges` is called |
-| Increment<> | void | Without loading a document from the server into the session, sends a request to increment the specified field in the specified document by a given value. If the field is a string the given value will be concatenated onto the field's current value. Request is sent when `SaveChanges()` is called. |
-| IsLoaded | boolean | Checks whether a document with the specified id is loaded in the current session |
-| LoadIntoStream | void | Loads the entities with the specified ids directly into a given stream |
+| [Exists](../../client-api/session/how-to/check-if-document-exists) | boolean | Checks whether a document exists in the database |
+| [GetChangeVectorFor<>](../../client-api/session/how-to/get-entity-change-vector) | string | Gets the current change-vector for the specified entity. Throws an exception if the entity is not tracked by the session. |
+| [GetCountersFor<>](../../client-api/session/how-to/get-entity-counters) | List<string> | Gets all the counter names for the specified entity. Throws an exception if the entity is not tracked by the session. |
+| [GetCurrentSessionNode](../../client-api/session/how-to/get-current-session-node) | Task<ServerNode> | Gets the server node this session will send its requests to, as determined by the read balance behavior |
+| [GetDocumentId](../../client-api/session/how-to/get-entity-id) | string | Gets the document id for the specified entity. May return `null` if the entity is not tracked by the session, or if the entity doesn't have an id yet |
+| [GetLastModifiedFor<>](../../client-api/session/how-to/get-entity-last-modified) | DateTime? | Gets last modified date for the specified entity. Throws an exception if the entity is not tracked by the session. |
+| [GetMetadataFor<>](../../client-api/session/how-to/get-and-modify-entity-metadata) | IMetadataDictionary | Gets the metadata for the specified entity. Throws an exception if the entity is not tracked by the session. |
+| [HasChanged](../../client-api/session/how-to/check-if-entity-has-changed) | boolean | Determines whether the specified entity has changed |
+| [IgnoreChangesFor](../../client-api/session/how-to/ignore-entity-changes) | void | Stops change tracking for the specified entity and skips it when `SaveChanges` is called |
+| [Increment<>](../../client-api/operations/patching/single-document) | void | Without loading a document from the server into the session, sends a request to increment the specified field in the specified document by a given value. If the field is a string the given value will be concatenated onto the field's current value. Request is sent when `SaveChanges()` is called. |
+| [IsLoaded](client-api/session/loading-entities#isloaded) | boolean | Checks whether a document with the specified id is loaded in the current session |
+| [LoadIntoStream]( | void | Loads the entities with the specified ids directly into a given stream |
 | LoadStartingWith<> | T[] | Loads multiple entities that contain the specified prefix |
 | LoadStartingWithIntoStream | void | Loads multiple entities that contain the specified prefix into a given stream |
 | Patch<> | void | Without loading a document from the server into the session, sends a request to modify the specified field in the specified document according to a given lambda expression. Request is sent when `SaveChanges()` is called. |
