@@ -23,7 +23,7 @@ The session.Advanced properties
 | LoadStartingWith<> | T[] | Loads multiple entities that contain the specified prefix |
 | LoadStartingWithIntoStream | void | Loads multiple entities that contain the specified prefix into a given stream |
 | Patch<> | Without loading a document from the server into the session, sends a request to modify the specified field in the specified document according to a given lambda expression. Request is sent when `SaveChanges()` is called. |
-| RawQuery<> | void | Query the specified index using provided raw query |
+| RawQuery<> | void | Query the specified index using the provided [Raw Query](../../client-api/session/querying/how-to-query#session.advanced.rawquery) written in [RQL](../../indexes/querying/what-is-rql) |
 | Refresh<>
 | SetTransactionMode
 | Stream<>
