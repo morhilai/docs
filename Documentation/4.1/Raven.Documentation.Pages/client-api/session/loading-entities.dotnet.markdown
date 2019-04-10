@@ -95,6 +95,9 @@ To load multiple entities at once, use one of the following `Load` overloads.
 | Parameters | | |
 | ------------- | ------------- | ----- |
 | **ids** | IEnumerable<string> | IEnumerable of the ids of the documents to load |
+| **includes** | IIncludeBuilder<T> | An action that specifies which documents and\or counters to include, by using the IIncludeBuilder interface |
+| **token** | CancellationToken | Propagates notification that operations should be canceled |
+
 
 | Return Value | |
 | ------------- | ----- |

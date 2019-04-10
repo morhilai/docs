@@ -24,33 +24,18 @@ namespace Raven.Documentation.Samples.ClientApi.Session
             //Load the document with the specified id.
             T Load<T>(string id);
 
-            //Load multiple documents with the specified ids.
-            Dictionary<string, T> Load<T>(IEnumerable<string> ids);
-
             //Load the document with the specified id, 
             //and includes other Documents and/or Counters.
             T Load<T>(string id, Action<IIncludeBuilder<T>> includes);
-
-            //Load multiple documents with the specified ids, 
-            //and includes other Documents and/or Counters.
-            Dictionary<string, T> Load<T>(IEnumerable<string> ids, Action<IIncludeBuilder<T>> includes);
             #endregion
 
             #region loading_entities_1_0_async
             //Load the document with the specified id.
             Task<T> LoadAsync<T>(string id, CancellationToken token = default);
-
-            //Load multiple documents with the specified ids.
-            Task<Dictionary<string, T>> LoadAsync<T>(IEnumerable<string> ids, CancellationToken token = default);
-
+            
             //Load the document with the specified id, 
             //and includes other Documents and/or Counters.
             Task<T> LoadAsync<T>(string id, Action<IIncludeBuilder<T>> includes, CancellationToken token = default);
-
-            //Load multiple documents with the specified ids, 
-            //and includes other Documents and/or Counters.
-            Task<Dictionary<string, T>> LoadAsync<T>(IEnumerable<string> ids, Action<IIncludeBuilder<T>> includes, 
-                                                                                    CancellationToken token = default);
             #endregion
 
             #region loading_entities_2_0
@@ -66,11 +51,22 @@ namespace Raven.Documentation.Samples.ClientApi.Session
             #endregion
 
             #region loading_entities_3_0
-            Dictionary<string, TResult> Load<TResult>(IEnumerable<string> ids);
+            //Load multiple documents with the specified ids.
+            Dictionary<string, T> Load<T>(IEnumerable<string> ids);
+
+            //Load multiple documents with the specified ids, 
+            //and includes other Documents and/or Counters.
+            Dictionary<string, T> Load<T>(IEnumerable<string> ids, Action<IIncludeBuilder<T>> includes);
             #endregion
 
             #region loading_entities_3_0_async
-            Task<Dictionary<string, TResult>> LoadAsync<TResult>(IEnumerable<string> ids);
+            //Load multiple documents with the specified ids.
+            Task<Dictionary<string, T>> LoadAsync<T>(IEnumerable<string> ids, CancellationToken token = default);
+
+            //Load multiple documents with the specified ids, 
+            //and includes other Documents and/or Counters.
+            Task<Dictionary<string, T>> LoadAsync<T>(IEnumerable<string> ids, Action<IIncludeBuilder<T>> includes,
+                                                                                    CancellationToken token = default);
             #endregion
 
             #region loading_entities_4_0
