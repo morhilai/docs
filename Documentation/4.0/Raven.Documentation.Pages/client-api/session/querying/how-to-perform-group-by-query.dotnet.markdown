@@ -1,4 +1,4 @@
-#Session : Querying : How to Perform Dynamic Group By Query
+#Session: Querying: How to Perform Dynamic Group By Query
 
 Since RavenDB 4.0, the query optimizer supports dynamic group by queries and automatically creates auto map-reduce indexes.
 
@@ -138,6 +138,39 @@ In order to use the above extension methods you need to add the following **usin
 
 {CODE group_by_using@ClientApi\Session\Querying\HowToPerformGroupByQuery.cs /}
 {NOTE/}
+
+{PANEL/}
+
+{PANEL: Sorting}
+
+Results of dynamic group by queries can be sorted by an aggregation function used in the query. As the available aggregation operations are `Count` and `Sum` you can use them to
+order the results.
+
+#### By Count
+
+{CODE-TABS}
+{CODE-TAB:csharp:Sync order_by_count@ClientApi\Session\Querying\HowToPerformGroupByQuery.cs /}
+{CODE-TAB:csharp:Async order_by_count_async@ClientApi\Session\Querying\HowToPerformGroupByQuery.cs /}
+{CODE-TAB-BLOCK:sql:RQL}
+from Orders 
+group by Employee 
+order by count() as long 
+select Employee, count()
+{CODE-TAB-BLOCK/}
+{CODE-TABS/}
+
+#### By Sum
+
+{CODE-TABS}
+{CODE-TAB:csharp:Sync order_by_sum@ClientApi\Session\Querying\HowToPerformGroupByQuery.cs /}
+{CODE-TAB:csharp:Async order_by_sum_async@ClientApi\Session\Querying\HowToPerformGroupByQuery.cs /}
+{CODE-TAB-BLOCK:sql:RQL}
+from Orders 
+group by Employee 
+order by sum(Freight) as double 
+select key() as Employee, sum(Freight) as Sum
+{CODE-TAB-BLOCK/}
+{CODE-TABS/}
 
 {PANEL/}
 

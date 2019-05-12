@@ -1,37 +1,60 @@
-# Installation : Setup Wizard Walkthrough
+# Installation: Setup Wizard Walkthrough
+---
 
-We want to make it as easy as possible for you to start RavenDB with a valid trusted certificate from the very beginning and to stay secure through your entire application lifecycle, starting from early stages of development, ending on production and day-to-day usage.
+{NOTE: }
 
-To make the setup process as smooth as possible, we introduced the "Setup Wizard", a step-by-step guide to help you configure your desired level of security and easily deploy a secured cluster.
+* We want to make it as easy as possible for you to start RavenDB with a valid, trusted certificate from the very beginning.  
+  We want you to stay secure throughout your application lifecycle, starting with the early stages of development and all the way to production and day-to-day usage.  
 
-You have 4 options to choose from:
+* To make the setup process as smooth as possible, we have introduced the **Setup Wizard**,  
+  a step-by-step guide to help you configure the desired security level and easily deploy a secure cluster.  
 
-1. [Secure Setup with a Let's Encrypt certificate](../../start/installation/setup-wizard#secure-setup-with-a-let)
-2. [Secure Setup with your own certificate](../../start/installation/setup-wizard#secure-setup-with-your-own-certificate)
-3. [Unsecured Setup](../../start/installation/setup-wizard#unsecured-setup)
-4. [Manual Setup](../../start/installation/manual)
+* Using the Setup Wizard you can set up a secure cluster with:  
+  * **Let's Encrypt certificate**  
+  * **Self-obtained certificate**  
+  * -or- choose to continue in an **unsecure mode**.  
 
-When running the RavenDB server for the first time, you will be redirected to the setup wizard welcome screen where you can choose your preferred option.
+* Note: The RavenDB server can also be **set up manually** if choosing not to use the wizard.  
+  See [Manual Setup](../../start/installation/manual)  
 
-![Figure 1. Welcome Screen](images/setup/2.png)  
+* Note: this page explains how to follow the Setup Wizard, without going into security concerns details.  
+  To learn more about how _Authentication_ and _Authorization_ are implemented with RavenDB, and about _Security_ in general,  
+  go to [Security Overview](../../server/security/overview).  
 
-This section explains how to follow the setup wizard. It does not go into detail about security concerns. If you wish to learn about how authentication and authorization work in RavenDB or more about security in general, please read the [security section](../../server/security/overview). 
+* If you are having trouble using the wizard, or with security in general, please visit the [Security Common Errors & FAQ](../../Server/Security/common-errors-and-faq) section.
 
-If you are having trouble using the wizard or with security in general, please visit the [Security FAQ section](../../Server/Security/common-errors-and-faq).
+* In this page:
+  * [Select Setup Mode](../../start/installation/setup-wizard#select-setup-mode)
+  * [Secure Setup with a Let's Encrypt Certificate](../../start/installation/setup-wizard#secure-setup-with-a-let)
+  * [Secure Setup with a Self-Obtained Certificate](../../start/installation/setup-wizard#secure-setup-with-your-own-certificate)
+  * [Unsecure Setup](../../start/installation/setup-wizard#unsecure-setup)
+{NOTE/}
+
+---
+
+{PANEL:Select Setup Mode}
+
+* When running the RavenDB server for the first time,  
+  you will be redirected to the setup wizard welcome page where you can choose your preferred option.  
+
+![Figure 1. Welcome Page](images/setup/setup-wizard-1.png "Select Mode in the Welcome Page")
+
+{PANEL/}
 
 {PANEL:Secure Setup with a Let's Encrypt Certificate}
 
-[Let's Encrypt](https://letsencrypt.org/) is a free, automated, and non-profit certificate authority. It will generate a certificate for your domain as long as you can prove that you own it.
+[Let's Encrypt](https://letsencrypt.org/) is a free, automated, and non-profit certificate authority.  
+It will generate a certificate for your domain as long as you can prove that you own it.  
 
-During the wizard, RavenDB will give you a free subdomain. It lets you configure the DNS records for this subdomain to point to the IP addresses your server will listen to. The subdomain is owned by RavenDB, and we let you manage it through our [Customer Portal](https://customers.ravendb.net). Login with your license, and you can add/remove/update DNS records for your cluster.
+During the wizard, RavenDB will give you a free subdomain. This will let you configure the DNS records for this subdomain to point to the IP addresses your server will listen to. The subdomain is owned by RavenDB, and you can manage it through our [Customer Portal](https://customers.ravendb.net). Login with your license key, and you can add/remove/update DNS records for your cluster.
 
 The free subdomain is given to you only for the purpose of proving ownership to Let's Encrypt. If you wish to use your own domain, you are welcome to acquire your own certificate and use that instead.
 
 {WARNING: Security consideration and ownership of certificates and domains} 
 
-The automatic setup is designed to be as convenient and as easy as possible. It takes care of all the nitpicks of setting up DNS records, generating certificates, and doing their renewals. Because of those requirements, the ownership of the certificates and DNS records needs to stay within the Hibernating Rhinos company. This gives us the ability to generate valid certificates and modify DNS settings for your registered domains and should be a consideration to keep in mind while reviewing the security of your system. Hibernating Rhinos **will never** exploit these abilities and will never perform any modifications to the certificates and DNS records unless explicitly requested by the client.
+The automatic setup is designed to be as convenient and as easy as possible. It takes care of all the details of setting up DNS records, generating certificates, and performing their renewals. Because of these requirements, the ownership of the certificates and DNS records needs to stay within the Hibernating Rhinos company. This gives us the ability to generate valid certificates and modify DNS settings for your registered domains and should be a consideration to keep in mind while reviewing the security of your system. Hibernating Rhinos will **never** exploit these abilities and will never perform any modifications to the certificates and DNS records unless explicitly requested by the client.
 
-The purpose of this feature is to make it easy for users to get set up and running with a minimum of fuss. We **recommend** that for actual production deployments and for the highest level of security and control, you'll use **your own certificates and domains**, avoiding the need to rely on third party for such a critical part of your security.
+The purpose of this feature is to make it easy for users to get set up and running with a minimum of fuss. We **recommend** that for actual production deployments and for the highest level of security and control, you'll use **your own certificates and domains**, avoiding the need to rely on a third party for such a critical part of your security.
 
 {WARNING/}
 
@@ -120,7 +143,7 @@ If the validation fails, you will receive a detailed error. You can go back in t
 
 A [common error](../../server/security/common-errors-and-faq) is that DNS records didn't update locally. You may wait a bit and try again. An easy workaround is to configure (just for the setup) your network card to use Google's DNS server (8.8.8.8), to bypass caching of DNS records.
 
-Tip:  use dns.google.com to see the dns record of your domain.
+Tip:  use dns.google.com to see the DNS record of your domain.
 
 When finished you will receive a Zip file containing all of the cluster configuration files and certificates. In case you are setting up a cluster, you will use this Zip file to setup the other nodes.
 
@@ -281,56 +304,68 @@ Click restart when finished and repeat the process for more nodes. When all the 
 
 ![Figure 11. Complete Cluster](images/setup/w7.png)
 
-You have successfully finished setting up a secure cluster of RavenDB servers using you own wildcard certificate.
+You have successfully finished setting up a secure cluster of RavenDB servers using your own wildcard certificate.
 
 {PANEL/}
 
-{PANEL:Unsecured Setup}
+{PANEL:Unsecure Setup}
 
-In Unsecured Setup, all you need to do is choose the IP address and ports that the server will listen to.
-
-{NOTE: Note}
-In unsecured mode all security features are disabled (authentication, authorization and encryption).
-{NOTE/}
-
-The following screenshot shows a simple local configuration, listening to 127.0.0.1 on port 8080.
-
-![Figure 1. Complete Cluster](images/setup/u0.png)
-
+In the **Unsecure Mode**, all you need to do is specify the **IP address** and **ports** that the server will listen to.  
 {DANGER: Danger}
-When choosing to listen to an outside network, the RavenDB server does not provide any security. Authentication is off. Anyone who can access the server using the configured IP address will be granted **administrative privileges**. 
+
+* All security features (authentication, authorization and encryption) are **disabled** in the Unsecure Mode.  
+
+* When choosing to listen to an outside network, the RavenDB server does not provide any security since Authentication is off.  
+  Anyone who can access the server using the configured IP address will be granted **administrative privileges**.  
 {DANGER/}
 
-When you are done configuring the server, click next and then restart. After a few seconds, the server will be ready and accessible.
+![Figure 1. Complete Cluster](images/setup/u0.png "Configuring a server on Node A, listening to 127.0.0.1 on port 8080 ")
 
-![Figure 3. Complete Cluster](images/setup/u1.png)
+1. **Http Port** - Enter the port that will be used by the clients and the Studio. Default is 8080.  
+   **TCP Port** - Enter the port that will be used for inter-server communication and for subscriptions. Default is 38888.  
 
-Access the Studio by entering the URL in the browser: "http://127.0.0.1:8080" or "http://localhost:8080".
+2. **IP Address**: Enter the server's IP address.  
 
-![Figure 4. Complete Cluster](images/setup/u2.png)  
+3. **Create new cluster**  
+   * **Checked** - The server will be created within a cluster with the specified Node Tag.  
+                   This new cluster will only contain this node.  
+   * **Unchecked** - The server will Not be created in a cluster.  
+                     The server will be created in a [Passive State](../../studio/server/cluster/cluster-view#cluster-nodes-states-&-types-flow) and can later be added to an already existing cluster.  
 
-You have successfully finished setting up a RavenDB server.
+4. **Environment**  
+   This option only shows when creating a new cluster.  
+   Select the label that will be shown in the Studio UI for this server.     
+   If you select 'None' now, you can still configure this later from the Studio. See [Studio Configuration](../../todo-update-me-later).  
 
-To construct a cluster, unzip the downloaded RavenDB package to more machines (or local folders), as many as the number of nodes you want. In each node, start the RavenDB server and complete the setup wizard, with a different IP address.
+5. **Next** - Click Next when done configuring.  
 
-Once all the servers are up and running, building the cluster is simple. Access the studio, go to Manage Server > Cluster, and add nodes to the cluster by their URL.  
+![Figure 2. Complete Cluster](images/setup/u1.png "Configuration has completed - Restart the Server")
 
+Once configuration is completed, restart the server.  
+After a few seconds, the server will be ready and accessible.  
+Access the Studio by entering the URL in the browser: "http://127.0.0.1:8080" or "http://localhost:8080".  
+
+![Figure 3. Complete Cluster](images/setup/u2.png "The server's dashboard")
+
+### Continuing The Cluster Setup
+
+To construct a cluster, unzip the downloaded RavenDB package to more machines (or local folders), 
+as many as the number of nodes you want.  
+In each node, start the RavenDB server and complete the Setup Wizard, entering a different IP address per server.
+
+Once all the servers are up and running, building the cluster is simple.  
+Access the studio, go to _Manage Server > Cluster_, and add nodes to the cluster by their URL.  
+Learn more in [Adding a Node to a Cluster](../../studio/server/cluster/add-node-to-cluster).  
 {PANEL/}
 
 ## Related Articles
 
-### Installation
+### Server
+- [Security in RavenDB - Overview](../../server/security/overview)
+- [Common Setup Wizard Errors and FAQ](../../server/security/common-errors-and-faq#setup-wizard-issues) 
 
-- [Common Setup Wizard Errors and FAQ](../../server/security/common-errors-and-faq#setup-wizard-issues)
+### Getting Started
 - [Manual Setup](../../start/installation/manual)
-
-### Setup Examples
-
-- [AWS Windows VM](../../start/installation/setup-examples/aws-windows-vm)
-- [AWS Linux VM](../../start/installation/setup-examples/aws-linux-vm)
-- [Docker on AWS Linux VM](../../start/installation/setup-examples/aws-docker-linux-vm)
-
-
-### Security
-
-- [Security in RavenDB](../../server/security/overview)
+- [Setup Example - AWS Windows VM](../../start/installation/setup-examples/aws-windows-vm)
+- [Setup Example - AWS Linux VM](../../start/installation/setup-examples/aws-linux-vm)
+- [Setup Example - Docker on AWS Linux VM](../../start/installation/setup-examples/aws-docker-linux-vm)

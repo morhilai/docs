@@ -33,7 +33,8 @@ namespace Raven.Documentation.Parser.Compilation
                 Mappings = parameters.Mappings,
                 Metadata = parameters.Metadata,
                 SeoMetaProperties = parameters.SeoMetaProperties,
-                RelatedArticlesContent = parameters.RelatedArticlesContent
+                RelatedArticlesContent = parameters.RelatedArticlesContent,
+                DiscussionId = parameters.DiscussionId
             };
         }
     }
@@ -71,6 +72,7 @@ namespace Raven.Documentation.Parser.Compilation
             public string RelatedArticlesContent { get; set; }
             public Dictionary<string, string> Metadata { get; set; }
             public Dictionary<string, string> SeoMetaProperties { get; set; }
+            public string DiscussionId { get; set; }
         }
 
         public TPage Compile(CompilationUtils.Parameters parameters)
@@ -103,6 +105,9 @@ namespace Raven.Documentation.Parser.Compilation
                 ProcessNonMarkdownImages(file, documentationVersion, page.Language, htmlDocument, images, key);
 
                 var title = ExtractTitle(page, htmlDocument);
+
+                ValidateTitle(title);
+
                 var textContent = ExtractTextContent(htmlDocument, out var relatedArticlesContent);
 
                 var caseSensitiveFileName = PathHelper.GetProperFilePathCapitalization(file.FullName);
@@ -130,7 +135,8 @@ namespace Raven.Documentation.Parser.Compilation
                     Mappings = mappings.OrderBy(x => x.Version).ToList(),
                     RelatedArticlesContent = relatedArticlesContent,
                     Metadata = page.Metadata,
-                    SeoMetaProperties = page.SeoMetaProperties
+                    SeoMetaProperties = page.SeoMetaProperties,
+                    DiscussionId = page.DiscussionId
                 };
 
                 return CreatePage(createPageParams);
@@ -188,6 +194,9 @@ namespace Raven.Documentation.Parser.Compilation
             if (tag.attributes.TryGetValue("src", out src))
             {
                 var imagePath = Path.Combine(directory, src);
+
+                if (File.Exists(imagePath) == false)
+                    throw new InvalidOperationException($"Could not find image in '{imagePath}' for article '{key}'.");
 
                 src = src.Replace('\\', '/');
                 if (src.StartsWith("."))
@@ -267,6 +276,12 @@ namespace Raven.Documentation.Parser.Compilation
                 return "No title";
 
             return node.InnerText;
+        }
+
+        private void ValidateTitle(string title)
+        {
+            if (title.Contains(" :"))
+                throw new InvalidOperationException("Please remove space before the colon (\" :\") in the markdown file heading.");
         }
     }
 }

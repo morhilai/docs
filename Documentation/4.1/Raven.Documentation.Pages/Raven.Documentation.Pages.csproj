@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="studio\database\tasks\import-data\images\" />
+    <Folder Include="start\installation\setup-examples\Kubernetes\images\aks\" />
   </ItemGroup>
 
 </Project>

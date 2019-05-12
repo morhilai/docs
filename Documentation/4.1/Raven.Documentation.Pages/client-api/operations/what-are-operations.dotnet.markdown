@@ -1,4 +1,4 @@
-# Operations : What are the Operations
+# Operations: What are the Operations
 
 The RavenDB client API is built with the notion of layers. At the top, and what you will usually interact with, are the **[DocumentStore](../../client-api/what-is-a-document-store)** and the **[DocumentSession](../../client-api/session/what-is-a-session-and-how-does-it-work)**.
 
@@ -144,6 +144,7 @@ These type of operations contain various administrative and miscellaneous config
 * [DeleteDatabasesOperation](../../client-api/operations/server-wide/delete-database)   
 * [PromoteDatabaseNodeOperation](../../client-api/operations/server-wide/promote-database-node)   
 * [ToggleDatabasesStateOperation](../../client-api/operations/server-wide/toggle-databases-state)   
+* [ReorderDatabaseMembersOperation](../../client-api/operations/server-wide/reorder-database-members)   
 
 #### Miscellaneous
 
