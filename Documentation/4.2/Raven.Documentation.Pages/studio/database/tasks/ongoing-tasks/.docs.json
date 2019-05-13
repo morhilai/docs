@@ -1,5 +1,11 @@
 [
   {
+    "Path": "general-info.markdown",
+    "Name": "General Info",
+    "DiscussionId": "af307023-dfce-439e-b84c-4cbca5861061",
+    "Mappings": []
+  },
+  {
     "Path": "pull-replication.markdown",
     "Name": "Pull Replication",
     "DiscussionId": "3ebce840-1ea8-4f9e-ae50-0275661a3c1d",
