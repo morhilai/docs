@@ -1,0 +1,19 @@
+[
+  {
+    "Path": "how-to-consume-data-subscription.markdown",
+    "Name": "How to Consume a Data Subscription",
+    "DiscussionId": "50f4e08d-d219-4ffc-a9e0-c68d31833096",
+    "Mappings": []
+  },
+  {
+    "Path": "examples.markdown",
+    "Name": "Examples",
+    "DiscussionId": "93515d84-813e-45d6-9e48-b240a9c0381f",
+    "Mappings": []
+  },
+  {
+    "Path": "api-overview.markdown",
+    "Name": "API Overview",
+    "Mappings": []
+  }
+]
