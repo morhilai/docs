@@ -6,6 +6,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.config
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -229,3 +230,6 @@ Documentation/3.0/Samples/java/.idea/
 *.raven-cluster-topology
 *.raven-topology
 *.raven-database-topology
+
+# ignore a file type
+*.config

@@ -1,72 +1,83 @@
 # Batches: How to Send Multiple Commands Using a Batch
 
+---
+
+{NOTE: }
+
 To send **multiple commands** in a **single request**, reducing the number of remote calls and allowing several operations to share **same transaction**, `BatchCommand` should be used.
+
+{NOTE/}
+
+---
 
 ## Syntax
 
 {CODE-BLOCK: bash}
-curl \
-    'http://{server URL}/databases/{database name}/bulk_docs \
-    -X POST \
-    -d {list of command data in JSON format}
+curl -X POST \
+    'http[server URL]/databases/[database name]/bulk_docs?[batch options] \
+    -d {
+        [list of commands]
+    }
 {CODE-BLOCK/}
 
-### The following commands can be sent using a batch
+The following commands can be sent using a batch:  
 
-* DeleteAttachmentCommandData
-* DeleteCommandData
-* DeletePrefixedCommandData
-* PatchCommandData
-* PutAttachmentCommandData
-* PutCommandData
+* [DeleteAttachmentCommandData](../../../client-api/commands/batches/how-to-send-multiple-commands-using-a-batch#delete-attachment-command)  
+* [DeleteCommandData]()  
+* [DeletePrefixedCommandData]()  
+* [PatchCommandData]()  
+* [PutAttachmentCommandData]()  
+* [PutCommandData]()  
 
-#### DeleteAttachmentCommandData
+---
 
-| Parameter | Description | Required |
-| - | - | - |
-| Id | Document ID for which to delete the attachment | Yes |
-| Name | Name of attachment to delete | Yes |
-| ChangeVector | Concurrency check | No |
-| Type | Set to `AttachmentDELETE` - the operation to perform on the specified document(s) | Yes |
-
-#### DeleteCommandData
+### Delete Attachment Command
 
 | Parameter | Description | Required |
 | - | - | - |
-| Id | Document ID | Yes |
-| ChangeVector | Concurrency check | No |
-| Type | Set to `DELETE` - the operation to perform on the specified document(s) | Yes |
+| Id | ID of document for which to delete the attachment | Required |
+| Name | Name of the attachment to delete | Required |
+| ChangeVector | The document's expected change vector. If it does not match the server-side change vector a concurrency exception is thrown. | Optional |
+| Type | Set to `AttachmentDELETE` | Required |
 
-#### DeletePrefixedCommandData
+### DeleteCommandData
 
 | Parameter | Description | Required |
 | - | - | - |
-| prefix | Documents whose IDs begin with this prefix will all be deleted. An example of a prefix would be a collection name. | Yes |
-| IdPrefixed | Value: `true`. Indicates that this command is delete-by-prefix rather than by whole document ID | Yes |
-| Type | Set to `DELETE` - the operation to perform on the specified document(s) | Yes |
+| Id | ID of document to delete (only one can be deleted per command) | Required |
+| ChangeVector | The document's expected change vector. If it does not match the server-side change vector a concurrency exception is thrown. | Optional |
+| Type | Set to `DELETE` | Required |
+
+### DeletePrefixedCommandData
+
+| Parameter | Description | Required |
+| - | - | - |
+| prefix | Documents whose IDs begin with this prefix will all be deleted | Required |
+| IdPrefixed | Set to `true`. Indicates that this command is delete by prefix rather than delete by whole document ID. | Required |
+| Type | Set to `DELETE` | Required |
 
 #### PatchCommandData
 
 | Parameter | Description | Required |
 | - | - | - |
-| Id | ID of document on which to execute the patch | Yes |
-| ChangeVector | Concurrency check | No |
-| Patch | Type: `PatchRequest` - JavaScript script to use to patch the specified document | Yes |
-| PatchIfMissing | Type: `PatchRequest` - An alternative script to use if no document with the given Id exists. It will create a new document with given Id | No |
-| Type | Set to `PATCH` - the operation to perform on the specified document(s) | Yes |
+| Id | ID of document on which to execute the patch | Required |
+| ChangeVector | The document's expected change vector. If it does not match the server-side change vector a concurrency exception is thrown. | Optional |
+| Patch | Script that modifies the specified document | Required |
+| PatchIfMissing | Type: `PatchRequest` - An alternative script to be executed if no document with the given ID is found. This will create a new document with the given ID. | Optional |
+| Type | Set to `PATCH` | Required |
 
-#### PutAttachmentCommandData
+### PutAttachmentCommandData
 
 | Parameter | Description | Required |
 | - | - | - |
-| Id | Document ID | Yes |
-| Name | Name of attachment to create | Yes |
-| Stream | Type: binary stream - the content of the attachment | Yes |
+| Id | Document ID | Required |
+| Name | Name of attachment to create | Required |
+| Stream | Type: binary stream - the content of the attachment | Required |
 | ContentType | Mime type of attachment |
-| ChangeVector | Concurrency check | No |
-| Type | Set to `AttachmentPUT` - the operation to perform on the specified document(s) | Yes |
+| ChangeVector | The document's expected change vector. If it does not match the server-side change vector a concurrency exception is thrown. | Optional |
+| Type | Set to `AttachmentPUT`  | Required |
 
-##### Format
+#### Format
 
 {CODE-BLOCK: bash}
 curl \
@@ -83,17 +94,17 @@ curl \
     --{separator}
 {CODE-BLOCK/}
 
-Binary streams come at the end of the body, in an order corresponding to the order of put attachment commands in the command list.
+Binary streams come at the end of the body, in the same order as the put attachment commands in the command list.
 
-#### PutCommandData
+### PutCommandData
 
 | Parameter | Description | Required |
 | - | - | - |
-| Id | Document ID | Yes |
-| ChangeVector | Concurrency check | No |
-| Document | JSON Document to put | Yes |
-| Type | Set to `PUT` - the which operation to perform on the specified document(s) | Yes |
-| ForceRevisionStrategy | Either none or Before | No |
+| Id | Document ID | Required |
+| ChangeVector | The document's expected change vector. If it does not match the server-side change vector a concurrency exception is thrown. | Optional |
+| Document | JSON Document to put | Required |
+| Type | Set to `PUT` - the which operation to perform on the specified document(s) | Required |
+| ForceRevisionStrategy | Either none or Before | Optional |
 
 ### Batch Options
 
