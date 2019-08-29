@@ -1,0 +1,22 @@
+[
+    {
+        "Path": "get-documents-by-id.markdown",
+        "Name": "Get Documents by ID"
+    },
+    {
+        "Path": "get-documents-by-prefix.markdown",
+        "Name": "Get Documents by Prefix"
+    },
+    {
+        "Path": "put-documents.markdown",
+        "Name": "Put Documents"
+    },
+    {
+        "Path": "delete-document.markdown",
+        "Name": "Delete Document"
+    },
+    {
+        "Path": "batch-commands.markdown",
+        "Name": "Batch Commands"
+    }
+]

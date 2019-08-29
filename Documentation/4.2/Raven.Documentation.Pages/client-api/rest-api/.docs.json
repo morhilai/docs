@@ -1,0 +1,18 @@
+[
+    {
+        "Path": "general-rest-api.markdown",
+        "Name": "General Rest API",
+        "DiscussionId": "b8009092-33b0-4323-9fcf-63d6fafdc79e",
+        "Mappings": []
+    },
+    {
+        "Path": "/document-commands",
+        "Name": "Document Commands",
+        "Mappings": []
+    },
+    {
+        "Path": "/queries",
+        "Name": "Queries",
+        "Mappings": []
+    }
+]
