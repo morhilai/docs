@@ -11,11 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="client-api\rest-api\Queries\" />
-    <Folder Include="client-api\session\querying\document-query\" />
     <Folder Include="studio\database\tasks\images\" />
   </ItemGroup>
 
-  
+  <ItemGroup>
+    <PackageReference Include="RavenDB.Client" Version="4.2.4-nightly-20190912-1306" />
+  </ItemGroup>
 
 </Project>
