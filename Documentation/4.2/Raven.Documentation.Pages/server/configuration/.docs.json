@@ -115,7 +115,6 @@
   {
     "Path": "security-configuration.markdown",
     "Name": "Security Configuration",
-    "DiscussionId": "8fc26a55-b05e-4e19-8795-dea24d503db6",
     "Mappings": []
   },
   {
@@ -132,7 +131,7 @@
   },
   {
     "Path": "studio-configuration.markdown",
-    "Name": "Studio Configuration",
+    "Name": "S0io Configuration",
     "DiscussionId": "d13bd568-a7df-477e-9708-588307fba47a",
     "Mappings": []
   },

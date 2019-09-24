@@ -29,9 +29,10 @@ For example, this is a typical [settings.json](../../configuration/configuration
 } 
 {CODE-BLOCK/}
 
-The second way to enable authentication is to set `Security.Certificate.Exec`. 
+The second way to enable authentication is to set `Security.Certificate.Load.Exec`. 
 
-This option is useful when you want to protect your certificate (private key) with other solutions such as "Azure Key Vault", "HashiCorp Vault" or even Hardware-Based Protection. RavenDB will invoke a process you specify, so you can write your own scripts / mini programs and apply whatever logic you need. It creates a clean separation between RavenDB and the secret store in use.
+This option is useful when you want to protect your certificate (private key) with other solutions such as "Azure Key Vault", "HashiCorp Vault" or even 
+Hardware-Based Protection. RavenDB will invoke a process you specify, so you can write your own scripts / mini programs and apply whatever logic you need. It creates a clean separation between RavenDB and the secret store in use.
 
 RavenDB expects to get the raw binary representation (byte array) of the .pfx certificate through the standard output.
 
@@ -68,7 +69,8 @@ And [settings.json](../../configuration/configuration-options#json) will look so
 {NOTE In all secure configurations, the `ServerUrl` must contain the same domain name that is used in the certificate (under the CN or ASN properties). /}
 
 {INFO: Important}
-When the server is running with a certificate for the first time, there are no client certificates registered in the server yet. The first action an administrator will do is to generate/register a new client certificate.
+When the server is running with a certificate for the first time, there are no client certificates registered in the server yet. The first action an 
+administrator will do is to generate/register a new client certificate.
 You can do this by using the [RavenDB CLI](../../../server/administration/cli#generateclientcert) (generateClientCert) or by using a client, see the [Client Certificate Usage](../../../server/security/authentication/client-certificate-usage) section for a detailed example.
 {INFO/}
 
