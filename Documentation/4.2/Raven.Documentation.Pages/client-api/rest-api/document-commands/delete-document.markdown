@@ -8,7 +8,7 @@
 `<server URL>/databases/<database name>/docs?id=<document ID>`  
 
 * In this page:    
-    * [Basic Example](../../../client-api/rest-api/document-commands/delete-document#basic-example)  
+    * [Example](../../../client-api/rest-api/document-commands/delete-document#example)  
     * [Request Format](../../../client-api/rest-api/document-commands/delete-document#request-format)  
     * [Response Format](../../../client-api/rest-api/document-commands/delete-document#response-format)  
 
@@ -16,13 +16,13 @@
 
 ---
 
-{PANEL: Basic Example}
+{PANEL: Example}
 
-An example cURL request to a database named "Example" on our [playground server](http://live-test.ravendb.net) to delete the document 
-"employees/1-A":  
+This is a cURL request to delete the document "employees/1-A" from a database named "Example" on our 
+[playground server](http://live-test.ravendb.net):  
 
 {CODE-BLOCK: bash}
-curl -X DELETE http://live-test.ravendb.net/databases/Example/docs?id=employees/1-A
+curl -X DELETE "http://live-test.ravendb.net/databases/Example/docs?id=employees/1-A"
 {CODE-BLOCK/}
 
 Response:
@@ -40,9 +40,11 @@ Raven-Server-Version: 4.2.3.42
 
 {PANEL: Request Format}
 
+This is the general format of the cURL request:  
+
 {CODE-BLOCK: bash}
-curl -X DELETE <server URL>/databases/<database name>/docs?id=<document ID> \
---header 'If-Match: <expected change vector>'
+curl -X DELETE "<server URL>/databases/<database name>/docs?id=<document ID>"
+--header "If-Match: <expected change vector>"
 {CODE-BLOCK/}
 
 | Query Parameters | Description | Required |
@@ -64,8 +66,8 @@ curl -X DELETE <server URL>/databases/<database name>/docs?id=<document ID> \
 
 | HTTP Status Code | Description |
 | - | - |
-| `204` | The document was successfully deleted, or no document with the specified ID exists. |
-| `409` | The change vector submitted did not match the server-side change vector. A concurrency exception was thrown. |
+| `204` | The document was successfully deleted, _or_ no document with the specified ID exists. |
+| `409` | The change vector submitted did not match the server-side change vector. A concurrency exception is thrown. |
 
 {PANEL/}
 

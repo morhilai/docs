@@ -16,7 +16,7 @@
   * [Query Parameter Examples](../../../client-api/rest-api/document-commands/get-all-documents#query-parameter-examples)  
       * [start](../../../client-api/rest-api/document-commands/get-all-documents#start)  
       * [pageSize](../../../client-api/rest-api/document-commands/get-all-documents#pagesize)
-      * [metadataOnly](../../../client-api/rest-api/document-commands/get-all-documents#metadataonly)
+      * [metadataOnly](../../../client-api/rest-api/document-commands/get-all-documents#metadataonly)  
 {NOTE/}  
 
 ---
@@ -24,24 +24,25 @@
 {PANEL:Basic Example}
 
 This is a cURL request to a database named "Example" on our [playground server](http://live-test.ravendb.net). Paging 
-through all of the documents in the database, the request skips the first 9 documents and retrieves only the next 3.  
+through all of the documents in the database, the request skips the first 9 documents and retrieves the next 2.  
 
 {CODE-BLOCK: bash}
-curl -X GET http://live-test.ravendb.net/databases/Example/docs?start=9&pageSize=3
+curl -X GET "http://live-test.ravendb.net/databases/Example/docs?start=9&pageSize=2"
 {CODE-BLOCK/}
 
-Actual response:  
+Response:  
 
 {CODE-BLOCK: http}
-Server:"nginx"
-Date:"Thu, 10 Oct 2019 12:00:40 GMT"
-Content-Type:"application/json; charset=utf-8"
-Transfer-Encoding:"chunked"
-Connection:"keep-alive"
-Content-Encoding:"gzip"
-ETag:""A:2134-W33iO0zJC0qZKWh6fjnp6A, A:1887-0N64iiIdYUKcO+yq1V0cPA, A:6214-xwmnvG1KBkSNXfl7/0yJ1A""
-Vary:"Accept-Encoding"
-Raven-Server-Version:"4.2.4.42"
+HTTP/1.1 200 OK
+Server: nginx 
+Date: Thu, 10 Oct 2019 12:00:40 GMT 
+Content-Type: application/json; charset=utf-8 
+Transfer-Encoding: chunked 
+Connection: keep-alive 
+Content-Encoding: gzip 
+ETag: "A:2134-W33iO0zJC0qZKWh6fjnp6A, A:1887-0N64iiIdYUKcO+yq1V0cPA, A:6214-xwmnvG1KBkSNXfl7/0yJ1A" 
+Vary: Accept-Encoding 
+Raven-Server-Version: 4.2.4.42 
 
 {
     "Results": [
@@ -82,25 +83,6 @@ Raven-Server-Version:"4.2.4.42"
                 "@id": "categories/7-A",
                 "@last-modified": "2018-07-27T12:21:11.2283909Z"
             }
-        },
-        {
-            "Name": "Meat/Poultry",
-            "Description": "Prepared meats",
-            "@metadata": {
-                "@attachments": [
-                    {
-                        "Name": "image.jpg",
-                        "Hash": "K37huqcfGCjDC0up0zVte7DAut5YS5K1z1kC+iUmeCI=",
-                        "ContentType": "image/jpeg",
-                        "Size": 31219
-                    }
-                ],
-                "@collection": "Categories",
-                "@change-vector": "A:2101-W33iO0zJC0qZKWh6fjnp6A",
-                "@flags": "HasAttachments",
-                "@id": "categories/6-A",
-                "@last-modified": "2018-07-27T12:20:49.7774078Z"
-            }
         }
     ]
 }
@@ -110,14 +92,14 @@ Raven-Server-Version:"4.2.4.42"
 
 {PANEL: Request Format}
 
-This is the general form of a cURL request that uses all query string parameters:  
+This is the general format of a cURL request that uses all query string parameters:  
 
 {CODE-BLOCK: batch}
-curl -X GET <server URL>/databases/<database name>/docs? \
-            &start=<integer> \
-            &pageSize=<integer> \
-            &metadata=<boolean> \
---header If-None-Match: <hash>
+curl -X GET "<server URL>/databases/<database name>/docs?
+            &start=<integer>
+            &pageSize=<integer>
+            &metadata=<boolean>"
+--header "If-None-Match: <hash>"
 {CODE-BLOCK/}
 Linebreaks are added for clarity.  
 <br/>
@@ -156,15 +138,16 @@ Linebreaks are added for clarity.
 
 #### Body
 
-Retrieved documents are sorted in descending order of their change vectors. A retrieved document is identical in 
-contents and format to the document stored in the server - unless the `metadataOnly` parameter is set to `true`.  
+Retrieved documents are sorted in descending order of their [change vectors](../../../server/clustering/replication/change-vector). 
+A retrieved document is identical in contents and format to the document stored in the server - unless the `metadataOnly` 
+parameter is set to `true`.  
 
 This is the general format of the JSON response body:  
 
 {CODE-BLOCK: javascript}
 {
-    "Results": [ 
-        { 
+    "Results": [
+        {
             "<field>":"<value>",
             ...
             "@metadata":{
@@ -176,6 +159,7 @@ This is the general format of the JSON response body:
     ]
 }
 {CODE-BLOCK/}
+Linebreaks are added for clarity.  
 
 {PANEL/}
 
@@ -197,7 +181,7 @@ Skip first 1,057 documents, and retrieve the rest (our version of Northwind cont
 cURL request:  
 
 {CODE-BLOCK: bash}
-curl -X GET http://live-test.ravendb.net/databases/Example/docs?start=1056
+curl -X GET "http://live-test.ravendb.net/databases/Example/docs?start=1056"
 {CODE-BLOCK/}
 
 Response:  
@@ -265,7 +249,7 @@ Retrieve the first document.
 cURL request:  
 
 {CODE-BLOCK: bash}
-curl -X GET http://live-test.ravendb.net/databases/Example/docs?pageSize=1
+curl -X GET "http://live-test.ravendb.net/databases/Example/docs?pageSize=1"
 {CODE-BLOCK/}
 
 Response:  
@@ -338,14 +322,14 @@ Raven-Server-Version: 4.2.4.42
 
 ### metadataOnly
 
-Skip 123, take the next five, and retrieve only the metadata of each document.  
+Skip first 123 documents, take the next 5, and retrieve only the metadata of each document.  
 cURL request:  
 
 {CODE-BLOCK: bash}
-curl -X GET http://live-test.ravendb.net/databases/Example/docs? \
-                start=123 \
-                &pageSize=5 \
-                &metadataOnly=true
+curl -X GET "http://live-test.ravendb.net/databases/Example/docs?
+                start=123
+                &pageSize=5
+                &metadataOnly=true"
 {CODE-BLOCK/}
 Linebreaks are added for clarity.  
 
@@ -428,3 +412,7 @@ Content-Length: 918
 - [Put Documents](../../../client-api/rest-api/document-commands/put-documents)  
 - [Delete Document](../../../client-api/rest-api/document-commands/delete-document)  
 - [Batch Commands](../../../client-api/rest-api/document-commands/batch-commands)  
+
+### Server  
+
+- [Change Vector](../../../server/clustering/replication/change-vector)  

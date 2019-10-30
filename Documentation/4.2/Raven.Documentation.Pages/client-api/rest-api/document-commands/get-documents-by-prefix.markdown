@@ -25,11 +25,11 @@
 
 {PANEL:Basic Example}
 
-This is a cURL request to a database named "Example" on our [playground server](http://live-test.ravendb.net), to retrieve all documents 
-whose IDs begin with the prefix "ship":  
+This is a cURL request to retrieve all documents whose IDs begin with the prefix "ship" from a database named "Example" on 
+our [playground server](http://live-test.ravendb.net):  
 
 {CODE-BLOCK: bash}
-curl -X GET http://live-test.ravendb.net/databases/Example/docs?startsWith=ship
+curl -X GET "http://live-test.ravendb.net/databases/Example/docs?startsWith=ship"
 {CODE-BLOCK/}
 
 Response:  
@@ -86,18 +86,18 @@ Raven-Server-Version: 4.2.4.42
 
 {PANEL: Request Format}
 
-This is the general form of a cURL request that uses all parameters:  
+This is the general format of a cURL request that uses all parameters:  
 
 {CODE-BLOCK: batch}
-curl -X GET <server URL>/databases/<database name>/docs? \
-            startsWith=<prefix> \
-            &matches=<suffix>|<suffix>|... \
-            &exclude=<suffix>|<suffix>|... \
-            &startAfter=<document ID> \
-            &start=<integer> \
-            &pageSize=<integer> \
-            &metadata=<boolean> \
---header If-None-Match: <hash>
+curl -X GET "<server URL>/databases/<database name>/docs?
+            startsWith=<prefix>
+            &matches=<suffix>|<suffix>|...
+            &exclude=<suffix>|<suffix>|...
+            &startAfter=<document ID>
+            &start=<integer>
+            &pageSize=<integer>
+            &metadata=<boolean>"
+--header "If-None-Match: <hash>"
 {CODE-BLOCK/}
 Linebreaks are added for clarity.  
 <br/>
@@ -127,7 +127,7 @@ Linebreaks are added for clarity.
 
 | Code | Description |
 | ----------- | - |
-| `200` | Results were successfully retrieved |
+| `200` | Results were successfully retrieved. If no documents with the specified prefix could be found, the results array is empty. |
 | `304` | In response to an `If-None-Match` check: none of the requested documents were modified since they were last loaded, so they were not retrieved from the server. |
 
 #### Headers
@@ -140,8 +140,9 @@ Linebreaks are added for clarity.
 
 #### Body
 
-Retrieved documents are sorted in ascending [lexical order](https://en.wikipedia.org/wiki/Lexicographical_order) of their document IDs. A retrieved document is identical in 
-contents and format to the document stored in the server - unless the `metadataOnly` parameter is set to `true`.  
+Retrieved documents are sorted in ascending [lexical order](https://en.wikipedia.org/wiki/Lexicographical_order) of their 
+document IDs. A retrieved document is identical in contents and format to the document stored in the server - unless the 
+`metadataOnly` parameter is set to `true`.  
 
 This is the general JSON format of the response body:  
 
@@ -159,6 +160,7 @@ This is the general JSON format of the response body:
         ...
     ]
 }
+Linebreaks are added for clarity.  
 {CODE-BLOCK/}
 
 {PANEL/}
@@ -182,9 +184,9 @@ In this section:
 cURL request:  
 
 {CODE-BLOCK: bash}
-curl -X GET http://live-test.ravendb.net/databases/Example/docs? \
-            startsWith=shipp \
-            &matches=ers/3-A|ers/1-A
+curl -X GET "http://live-test.ravendb.net/databases/Example/docs?
+            startsWith=shipp
+            &matches=ers/3-A|ers/1-A"
 {CODE-BLOCK/}
 Linebreaks are added for clarity.  
 
@@ -235,10 +237,10 @@ Raven-Server-Version: 4.2.4.42
 cURL request:  
 
 {CODE-BLOCK: bash}
-curl -X GET http://live-test.ravendb.net/databases/Example/docs? \
-            startsWith=shipp \
-            &matches=ers/3-A|ers/1-A \
-            &exclude=ers/3-A
+curl -X GET "http://live-test.ravendb.net/databases/Example/docs?
+            startsWith=shipp
+            &matches=ers/3-A|ers/1-A
+            &exclude=ers/3-A"
 {CODE-BLOCK/}
 Linebreaks are added for clarity.  
 
@@ -279,9 +281,9 @@ Raven-Server-Version: 4.2.4.42
 cURL request:  
 
 {CODE-BLOCK: bash}
-curl -X GET http://live-test.ravendb.net/databases/Example/docs? \
-            startsWith=shipp \
-            startAfter=shippers/1-A
+curl -X GET "http://live-test.ravendb.net/databases/Example/docs?
+            startsWith=shipp
+            startAfter=shippers/1-A"
 {CODE-BLOCK/}
 Linebreaks are added for clarity.  
 
@@ -332,10 +334,10 @@ Raven-Server-Version: 4.2.4.42
 cURL request:  
 
 {CODE-BLOCK: bash}
-curl -X GET http://live-test.ravendb.net/databases/Example/docs? \
-            startsWith=product \
-            &start=50 \
-            &pageSize=2
+curl -X GET "http://live-test.ravendb.net/databases/Example/docs?
+            startsWith=product
+            &start=50
+            &pageSize=2"
 {CODE-BLOCK/}
 Linebreaks are added for clarity.  
 
@@ -402,9 +404,9 @@ Note that the document ID numbers are 55 and 56 rather than the expected 51 and 
 cURL request:  
 
 {CODE-BLOCK: bash}
-curl -X GET http://live-test.ravendb.net/databases/Example/docs? \
-            startsWith=regio \
-            &metadataOnly=true
+curl -X GET "http://live-test.ravendb.net/databases/Example/docs?
+            startsWith=regio
+            &metadataOnly=true"
 {CODE-BLOCK/}
 Linebreaks are added for clarity.  
 

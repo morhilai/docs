@@ -10,6 +10,7 @@
 * In this page:  
   * [Examples](../../../client-api/rest-api/document-commands/put-documents#examples)  
   * [Request Format](../../../client-api/rest-api/document-commands/put-documents#request-format)  
+      * [Request Body](../../../client-api/rest-api/document-commands/put-documents#request-body)  
   * [Response Format](../../../client-api/rest-api/document-commands/put-documents#response-format)  
 
 {NOTE/}  
@@ -23,16 +24,17 @@ These are cURL requests to a database named "Example" on our [playground server]
 #### 1) Store new document "person/1-A" in the collection "People".  
 
 {CODE-BLOCK: bash}
-curl -X PUT http://live-test.ravendb.net/databases/Example/docs?id=person/1-A \
--d { 
-    "FirstName":"Jane", 
-    "LastName":"Doe",
-    "Age":42,
-    "@metadata":{
-        "@collection": "People"
+curl -X PUT "http://live-test.ravendb.net/databases/Example/docs?id=person/1-A"
+-d "{ 
+    \"FirstName\":\"Jane\", 
+    \"LastName\":\"Doe\",
+    \"Age\":42,
+    \"@metadata\":{
+        \"@collection\":\"People\"
     }
-}
+}"
 {CODE-BLOCK/}
+Linebreaks are added for clarity.
 
 Response:  
 
@@ -57,19 +59,19 @@ Raven-Server-Version: 4.2.3.42
 #### 2) Update the document `person/1-A`.  
 
 {CODE-BLOCK: bash}
-curl -X PUT http://live-test.ravendb.net/databases/Example/docs?id=person/1-A \
---header If-Match: A:1-L8hp6eYcA02dkVIEifGfKg \
--d { 
-    "FirstName":"John", 
-    "LastName":"Smith",
-    "Age":24,
-    "@metadata":{
-        "@collection": "People"
+curl -X PUT "http://live-test.ravendb.net/databases/Example/docs?id=person/1-A"
+--header "If-Match: A:1-L8hp6eYcA02dkVIEifGfKg"
+-d "{ 
+    \"FirstName\":\"John\", 
+    \"LastName\":\"Smith\",
+    \"Age\":24,
+    \"@metadata\":{
+        \"@collection\": \"People\"
     }
-}
+}"
 {CODE-BLOCK/}
 
-Response is identical to the previous response except for the updated change vector:  
+Response is the same as the previous response except for the updated change vector:  
 
 {CODE-BLOCK: Http}
 HTTP/1.1 201
@@ -94,12 +96,12 @@ Raven-Server-Version: 4.2.3.42
 
 {PANEL: Request Format}
 
-This is the general form of a cURL request:  
+This is the general format of the cURL request:  
 
-{CODE-BLOCK: batch}
-curl -X PUT <server URL>/databases/<database name>/docs?id=<document ID> \
---header If-Match: <expected change vector> \
--d <JSON document>
+{CODE-BLOCK: bash}
+curl -X PUT "<server URL>/databases/<database name>/docs?id=<document ID>"
+--header "If-Match: <expected change vector>"
+-d "<JSON document>"
 {CODE-BLOCK/}
 
 | Query Parameter | Description | Required |
@@ -115,12 +117,15 @@ curl -X PUT <server URL>/databases/<database name>/docs?id=<document ID> \
 The body contains a JSON document. This will replace the existing document with the specified ID if one exists, otherwise it 
 will become a new document with the specified ID.  
 
-{CODE-BLOCK: javascript}
+Depending on the shell you're using to run cURL, you will probably need to escape all double quotes within the request body 
+using a backslash: `"` -> `\"`.  
+
+{CODE-BLOCK: powershell}
 {
-    "<field>": "<value>",
+    \"<field>\": \"<value>\",
     ...
-    "@metadata": {
-        "@collection": "<collection name>",
+    \"@metadata\": {
+        \"@collection\": \"<collection name>\",
         ...
     }
 }
@@ -129,6 +134,14 @@ will become a new document with the specified ID.
 When updating an existing document, you'll need to include its [collection](../../../client-api/faq/what-is-a-collection) 
 name in the metadata or an exception will be thrown. Exceptions to this rule are documents in the collection `@empty` - 
 i.e. not in any collection. A document's collection cannot be modified.  
+
+Another way to make this request is to save your document as a file (such as a `.txt`), and pass the path to that file in 
+the request body:  
+
+{CODE-BLOCK: batch}
+curl -X PUT "<server URL>/databases/<database name>/docs?id=<document ID>"
+-d "<@path/to/yourDocument.txt>"
+{CODE-BLOCK/}
 
 {PANEL/}
 
@@ -152,7 +165,7 @@ The response body is JSON and contains the document ID and current [change vecto
 | - | - |
 | `201` | The document was successfully stored / updated |
 | `409` | The change vector submitted did not match the server-side change vector. A concurrency exception is thrown. |
-| `500` | Server error. For example: when the submitted document's collection tag does not match the specified document's collection tag. |
+| `500` | Server error, e.g. when the submitted document's collection tag did not match the specified document's collection tag. |
 
 {PANEL/}
 
