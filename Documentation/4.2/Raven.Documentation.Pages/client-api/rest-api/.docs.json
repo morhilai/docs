@@ -3,5 +3,10 @@
         "Path": "/document-commands",
         "Name": "Document Commands",
         "Mappings": []
+    },
+    {
+        "Path": "/querying",
+        "Name": "Querying",
+        "Mappings": []
     }
 ]
