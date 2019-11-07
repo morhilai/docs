@@ -920,5 +920,208 @@
             "twitter:description": "RavenDB has made 21 Improvements to its Document Database: A setup wizard, a database-as-a-service option, 10x faster performance, clusterwide ACID, and more.",
             "twitter:url": "https://ravendb.net/articles/21-improvements-to-our-nosql-document-database"
         }
-    }
+    },
+    {
+        "Path": "is-sql-faster-than-nosql-document-database.markdown",
+        "Name": "Is SQL Really Faster than a NoSQL Document Database?",
+        "Mappings": [],
+        "Metadata": {
+            "title": "Is SQL Really Faster than a NoSQL Document Database?",
+            "likeSection": "yes",
+            "url": "https://ravendb.net/articles/is-sql-faster-than-nosql-document-database",
+            "publishedAt": "2019-09-17",
+            "subcategories": "nosql-database"
+        },
+        "SeoMetaProperties": {
+            "description": "Is a NoSQL Document Database faster than SQL, Oracle, or a similar Relational data solution?",
+            "og:site_name": "RavenDB",
+            "og:type": "website",
+            "og:title": "Is SQL Really Faster than a NoSQL Document Database?",
+            "og:description": "Is a NoSQL Document Database faster than SQL, Oracle, or a similar Relational data solution, or not? Read about taking the Document Advantage to the Next Level.",
+            "og:url": "https://ravendb.net/articles/is-sql-faster-than-nosql-document-database",
+            "og:image": "https://ravendb.net/RavenFS/GetArticleImage?key=articles/is-sql-faster-than-nosql-document-database&fileName=is-sql-faster-than-nosql-document-database.jpg",
+            "og:image:width": "280",
+            "og:image:height": "280",
+            "twitter:card": "summary_large_image",
+            "twitter:creator": "@RavenDB",
+            "twitter:site": "@RavenDB",
+            "twitter:title": "Is SQL Really Faster than a NoSQL Document Database?",
+            "twitter:description": "Is a NoSQL Document Database faster than SQL, Oracle, or a similar Relational data solution, or not?",
+            "twitter:url": "https://ravendb.net/articles/is-sql-faster-than-nosql-document-database"
+        }
+    },
+    {
+        "Path": "what-to-consider-when-building-a-database-for-todays-data.markdown",
+        "Name": "What to Consider when Building a Database for Today’s Data",
+        "Mappings": [],
+        "Metadata": {
+            "title": "Building a Database for Today’s Data | RavenDB",
+            "likeSection": "yes",
+            "url": "https://ravendb.net/articles/what-to-consider-when-building-a-database-for-todays-data",
+            "publishedAt": "2019-10-15",
+            "subcategories": "nosql-database"
+        },
+        "SeoMetaProperties": {
+            "description": "Performance? Edge Processing? Data Integrity? What to consider in a database that will process modern data for minimal time, money, and developer resources.",
+            "og:site_name": "RavenDB",
+            "og:type": "website",
+            "og:title": "What to Consider when Building a Database for Today’s Data",
+            "og:description": "Performance, Edge Processing, Data Integrity are what to consider in a database that will process modern data for minimal time, money, and developer resources.",
+            "og:url": "https://ravendb.net/articles/what-to-consider-when-building-a-database-for-todays-data",
+            "og:image": "https://ravendb.net/RavenFS/GetArticleImage?key=articles/what-to-consider-when-building-a-database-for-todays-data&fileName=what-to-consider-when-building-a-database-for-todays-data.jpg",
+            "og:image:width": "280",
+            "og:image:height": "280",
+            "twitter:card": "summary_large_image",
+            "twitter:creator": "@RavenDB",
+            "twitter:site": "@RavenDB",
+            "twitter:title": "What to Consider when Building a Database for Today’s Data",
+            "twitter:description": "Performance, Edge Processing, Data Integrity are what to consider in a database that will process modern data for minimal time, money, and developer resources.",
+            "twitter:url": "https://ravendb.net/articles/what-to-consider-when-building-a-database-for-todays-data"
+        }
+    },
+    {
+        "Path": "exposing-the-advantages-of-an-open-source-database.markdown",
+        "Name": "Exposing the Advantages of an Open Source Database",
+        "Mappings": [],
+        "Metadata": {
+            "title": "Exposing the Advantages of an Open Source Database | RavenDB",
+            "likeSection": "yes",
+            "url": "https://ravendb.net/articles/exposing-the-advantages-of-an-open-source-database",
+            "publishedAt": "2019-10-22",
+            "subcategories": "nosql-database"
+        },
+        "SeoMetaProperties": {
+            "description": "An open source database gets its best features, code snippets, insights into technical trends from its greatest asset: Their Community of Developer Users.",
+            "og:site_name": "RavenDB",
+            "og:type": "website",
+            "og:title": "Exposing the Advantages of an Open Source Database | RavenDB",
+            "og:description": "An open source database gets its best features, code snippets, insights into technical trends from its greatest asset: Their Community of Developer Users.",
+            "og:url": "exposing-the-advantages-of-an-open-source-database",
+            "og:image": "https://ravendb.net/RavenFS/GetArticleImage?key=articles/exposing-the-advantages-of-an-open-source-database&fileName=exposing-the-advantages-of-an-open-source-database.jpg",
+            "og:image:width": "280",
+            "og:image:height": "280",
+            "twitter:card": "summary_large_image",
+            "twitter:creator": "@RavenDB",
+            "twitter:site": "@RavenDB",
+            "twitter:title": "Exposing the Advantages of an Open Source Database | RavenDB",
+            "twitter:description": "An open source database gets its best features, code snippets, insights into technical trends from its greatest asset: Their Community of Developer Users.",
+            "twitter:url": "https://ravendb.net/articles/exposing-the-advantages-of-an-open-source-database"
+        }
+    },
+    {
+        "Path": "the-big-trends-in-databases-today.markdown",
+        "Name": "The Big Trends in Databases Today",
+        "Mappings": [],
+        "Metadata": {
+            "title": "Big Trends in Databases Today | RavenDB",
+            "likeSection": "yes",
+            "url": "https://ravendb.net/articles/the-big-trends-in-databases-today",
+            "publishedAt": "2019-10-23",
+            "subcategories": "nosql-database"
+        },
+        "SeoMetaProperties": {
+            "description": "The Internet of Things and Mobile revolution have enabled billions of devices to pick up new forms of Big Data. As trends evolve, so must today’s database.",
+            "og:site_name": "RavenDB",
+            "og:type": "website",
+            "og:title": "The Big Trends in Databases Today | RavenDB",
+            "og:description": "The Internet of Things and Mobile revolution have enabled billions of devices to pick up new forms of Big Data. As trends evolve, so must today’s database.",
+            "og:url": "the-big-trends-in-databases-today",
+            "og:image": "https://ravendb.net/RavenFS/GetArticleImage?key=articles/the-big-trends-in-databases-today&fileName=the-big-trends-in-databases-today.jpg",
+            "og:image:width": "280",
+            "og:image:height": "280",
+            "twitter:card": "summary_large_image",
+            "twitter:creator": "@RavenDB",
+            "twitter:site": "@RavenDB",
+            "twitter:title": "The Big Trends in Databases Today | RavenDB",
+            "twitter:description": "The Internet of Things and Mobile revolution have enabled billions of devices to pick up new forms of Big Data. As trends evolve, so must today’s database.",
+            "twitter:url": "https://ravendb.net/articles/the-big-trends-in-databases-today"
+        }
+    },
+    {
+        "Path": "trapped-in-the-60s-how-our-view-on-data-is-holding-us-back.markdown",
+        "Name": "How our 1960s View of Data is Holding us Back",
+        "Mappings": [],
+        "Metadata": {
+            "title": "Transforming Database Modeling Standards | RavenDB",
+            "likeSection": "yes",
+            "url": "https://ravendb.net/articles/trapped-in-the-60s-how-our-view-on-data-is-holding-us-back",
+            "publishedAt": "2019-10-29",
+            "subcategories": "nosql-database"
+        },
+        "SeoMetaProperties": {
+            "description": "Why should a database be built by the data modeling standards of the Kennedy Administration? If we can ditch Bell Bottoms, we can transform how we model data.",
+            "og:site_name": "RavenDB",
+            "og:type": "website",
+            "og:title": "How our 1960s View of Data is Holding us Back | RavenDB",
+            "og:description": "Why should a database be built by the data modeling standards of the Kennedy Administration? If we can ditch Bell Bottoms, we can transform how we model data.",
+            "og:url": "trapped-in-the-60s-how-our-view-on-data-is-holding-us-back",
+            "og:image": "https://ravendb.net/RavenFS/GetArticleImage?key=articles/trapped-in-the-60s-how-our-view-on-data-is-holding-us-back&fileName=trapped-in-the-60s-how-our-view-on-data-is-holding-us-back.jpg",
+            "og:image:width": "280",
+            "og:image:height": "280",
+            "twitter:card": "summary_large_image",
+            "twitter:creator": "@RavenDB",
+            "twitter:site": "@RavenDB",
+            "twitter:title": "How our 1960s View of Data is Holding us Back | RavenDB",
+            "twitter:description": "Why should a database be built by the data modeling standards of the Kennedy Administration? If we can ditch Bell Bottoms, we can transform how we model data.",
+            "twitter:url": "https://ravendb.net/articles/trapped-in-the-60s-how-our-view-on-data-is-holding-us-back"
+        }
+    },
+	{
+			"Path": "ravendb-vs-mongodb-performance-cost-and-complexity.markdown",
+			"Name": "RavenDB vs MongoDB: Database Performance, Cost, and Complexity",
+			"Mappings": [],
+			"Metadata": {
+				"title": "RavenDB vs MongoDB: Database Performance, Cost, and Complexity",
+				"likeSection": "yes",
+				"url": "https://ravendb.net/articles/ravendb-vs-mongodb-performance-cost-and-complexity",
+				"publishedAt": "2019-11-05",
+				"subcategories": "nosql-database"
+			},
+			"SeoMetaProperties": {
+				"description": "Hundreds of Application Developers ask us all the time: How does RavenDB compare to MongoDB where it counts? In Performance, Cost, and Complexity?",
+				"og:site_name": "RavenDB",
+				"og:type": "website",
+				"og:title": "RavenDB vs MongoDB: Performance, Cost, and Complexity",
+				"og:description": "Hundreds of Application Developers ask us all the time: How does RavenDB compare to MongoDB where it counts? In Performance, Cost, and Complexity?",
+				"og:url": "ravendb-vs-mongodb-performance-cost-and-complexity",
+				"og:image": "https://ravendb.net/RavenFS/GetArticleImage?key=articles/ravendb-vs-mongodb-performance-cost-and-complexity&fileName=ravendb-vs-mongodb-performance-cost-and-complexity.jpg",
+				"og:image:width": "280",
+				"og:image:height": "280",
+				"twitter:card": "summary_large_image",
+				"twitter:creator": "@RavenDB",
+				"twitter:site": "@RavenDB",
+				"twitter:title": "RavenDB vs MongoDB: Performance, Cost, and Complexity",
+				"twitter:description": "Hundreds of Application Developers ask us all the time: How does RavenDB compare to MongoDB where it counts? In Performance, Cost, and Complexity?",
+				"twitter:url": "https://ravendb.net/articles/ravendb-vs-mongodb-performance-cost-and-complexity"
+			}
+	},
+	{
+			"Path": "how-ravendb-cloud-dbaas-bolsters-your-price-predictability.markdown",
+			"Name": "DbaaS Price and Cloud Database Costs",
+			"Mappings": [],
+			"Metadata": {
+				"title": "DbaaS Price and Cloud Database Costs",
+				"likeSection": "yes",
+				"url": "https://ravendb.net/articles/how-ravendb-cloud-dbaas-bolsters-your-price-predictability",
+				"publishedAt": "2019-11-04",
+				"subcategories": "nosql-database"
+			},
+			"SeoMetaProperties": {
+				"description": "The primary goal in using any DBaaS or SaaS tool is to cut costs. The challenge is to anticipate your next database cloud bill. RavenDB Cloud helps you accomplish both.",
+				"og:site_name": "RavenDB",
+				"og:type": "website",
+				"og:title": "How RavenDB Cloud DBaaS Bolsters Your Price Predictability",
+				"og:description": "The primary goal in using any DBaaS or SaaS tool is to cut costs. The challenge is to anticipate your next cloud bill. RavenDB Cloud helps you accomplish both.",
+				"og:url": "how-ravendb-cloud-dbaas-bolsters-your-price-predictability",
+				"og:image": "https://ravendb.net/RavenFS/GetArticleImage?key=articles/how-ravendb-cloud-dbaas-bolsters-your-price-predictability&fileName=how-ravendb-cloud-dbaas-bolsters-your-price-predictability.jpg",
+				"og:image:width": "280",
+				"og:image:height": "280",
+				"twitter:card": "summary_large_image",
+				"twitter:creator": "@RavenDB",
+				"twitter:site": "@RavenDB",
+				"twitter:title": "How RavenDB Cloud DBaaS Bolsters Your Price Predictability",
+				"twitter:description": "The primary goal in using any DBaaS or SaaS tool is to cut costs. The challenge is to anticipate your next cloud bill. RavenDB Cloud helps you accomplish both.",
+				"twitter:url": "https://ravendb.net/articles/how-ravendb-cloud-dbaas-bolsters-your-price-predictability"
+			}
+	}
 ]
