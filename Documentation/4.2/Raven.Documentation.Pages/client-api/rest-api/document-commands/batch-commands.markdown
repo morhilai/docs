@@ -562,6 +562,8 @@ Results appear in the same order as the commands in the request body.
 
 {PANEL: More Examples}
 
+[About Northwind](../../../getting-started/about-examples), the database used in our examples.
+
 * In this section:  
   * [Put Document Command](../../../client-api/rest-api/document-commands/batch-commands#put-document-command-2)  
   * [Patch Document Command](../../../client-api/rest-api/document-commands/batch-commands#patch-document-command-2)  
@@ -873,8 +875,8 @@ Raven-Server-Version:"4.2.4.42"
 - [Get All Documents](../../../client-api/rest-api/document-commands/get-all-documents)  
 - [Get Documents by ID](../../../client-api/rest-api/document-commands/get-documents-by-id)  
 - [Get Documents by Prefix](../../../client-api/rest-api/document-commands/get-documents-by-prefix)  
-- [Put Documents](../../../client-api/rest-api/document-commands/put-documents)  
-- [Delete Document](../../../client-api/rest-api/document-commands/delete-document)  
+- [Put a Document](../../../client-api/rest-api/document-commands/put-documents)  
+- [Delete a Document](../../../client-api/rest-api/document-commands/delete-document)  
 - [How to Perform Single Document Patch Operations](../../../client-api/operations/patching/single-document)  
 - [What is a Collection](../../../client-api/faq/what-is-a-collection)  
 - [What are Attachments](../../../client-api/session/attachments/what-are-attachments)  

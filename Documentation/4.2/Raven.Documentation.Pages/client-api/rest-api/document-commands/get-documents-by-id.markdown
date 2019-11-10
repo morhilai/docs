@@ -448,8 +448,8 @@ when it is [generated in the studio](../../../studio/database/documents/document
 
 - [Get All Documents](../../../client-api/rest-api/document-commands/get-all-documents)  
 - [Get Documents by Prefix](../../../client-api/rest-api/document-commands/get-documents-by-prefix)  
-- [Put Documents](../../../client-api/rest-api/document-commands/put-documents)  
-- [Delete Document](../../../client-api/rest-api/document-commands/delete-document)  
+- [Put a Document](../../../client-api/rest-api/document-commands/put-documents)  
+- [Delete a Document](../../../client-api/rest-api/document-commands/delete-document)  
 - [Batch Commands](../../../client-api/rest-api/document-commands/batch-commands)  
 - [Counters: Overview](../../../client-api/session/counters/overview)  
 - [How to Handle Document Relationships](../../../client-api/how-to/handle-document-relationships#includes)  

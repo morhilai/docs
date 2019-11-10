@@ -109,7 +109,7 @@ Linebreaks are added for clarity.
 | - | - | - |
 | **start** | Number of results to skip. | No |
 | **pageSize** | Maximum number of results to retrieve. | No |
-| **metadataOnly** | Set this parameter to `true` to retrieve only the document metadata for each result. | No |
+| **metadataOnly** | Set this parameter to `true` to retrieve only the document metadata from each result. | No |
 
 ####Headers
 
@@ -409,8 +409,8 @@ Content-Length: 918
 
 - [Get Documents by ID](../../../client-api/rest-api/document-commands/get-documents-by-id)  
 - [Get Documents by Prefix](../../../client-api/rest-api/document-commands/get-documents-by-prefix)  
-- [Put Documents](../../../client-api/rest-api/document-commands/put-documents)  
-- [Delete Document](../../../client-api/rest-api/document-commands/delete-document)  
+- [Put a Document](../../../client-api/rest-api/document-commands/put-documents)  
+- [Delete a Document](../../../client-api/rest-api/document-commands/delete-document)  
 - [Batch Commands](../../../client-api/rest-api/document-commands/batch-commands)  
 
 ### Server  

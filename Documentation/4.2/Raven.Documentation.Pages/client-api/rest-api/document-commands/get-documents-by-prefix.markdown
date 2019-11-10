@@ -111,7 +111,7 @@ Linebreaks are added for clarity.
 | **startAfter** | Retrieve only the results after the first document ID that begins with this prefix. | No |
 | **start** | Number of results to skip. | No |
 | **pageSize** | Maximum number of results to retrieve. | No |
-| **metadataOnly** | Set this parameter to `true` to retrieve only the document metadata for each result. | No |
+| **metadataOnly** | Set this parameter to `true` to retrieve only the document metadata from each result. | No |
 
 ####Headers
 
@@ -474,6 +474,6 @@ Raven-Server-Version: 4.2.4.42
 
 - [Get All Documents](../../../client-api/rest-api/document-commands/get-all-documents)  
 - [Get Documents by ID](../../../client-api/rest-api/document-commands/get-documents-by-id)  
-- [Put Documents](../../../client-api/rest-api/document-commands/put-documents)  
-- [Delete Document](../../../client-api/rest-api/document-commands/delete-document)  
+- [Put a Document](../../../client-api/rest-api/document-commands/put-documents)  
+- [Delete a Document](../../../client-api/rest-api/document-commands/delete-document)  
 - [Batch Commands](../../../client-api/rest-api/document-commands/batch-commands)  

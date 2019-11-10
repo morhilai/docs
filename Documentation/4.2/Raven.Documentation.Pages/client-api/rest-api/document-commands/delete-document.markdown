@@ -1,4 +1,4 @@
-﻿# Delete Documents
+﻿# Delete a Document
 
 ---
 
@@ -78,7 +78,7 @@ curl -X DELETE "<server URL>/databases/<database name>/docs?id=<document ID>"
 - [Get All Documents](../../../client-api/rest-api/document-commands/get-all-documents)  
 - [Get Documents by ID](../../../client-api/rest-api/document-commands/get-documents-by-id)  
 - [Get Documents by Prefix](../../../client-api/rest-api/document-commands/get-documents-by-prefix)  
-- [Put Documents](../../../client-api/rest-api/document-commands/put-documents)  
+- [Put a Document](../../../client-api/rest-api/document-commands/put-documents)  
 - [Batch Commands](../../../client-api/rest-api/document-commands/batch-commands)  
 
 ### Server  
