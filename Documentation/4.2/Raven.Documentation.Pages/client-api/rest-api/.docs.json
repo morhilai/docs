@@ -1,7 +1,12 @@
 [
-    {
-        "Path": "/document-commands",
-        "Name": "Document Commands",
-        "Mappings": []
-    }
+  {
+    "Path": "rest-api-intro.markdown",
+    "Name": "Introduction to the REST API",
+    "Mappings": []
+  },
+  {
+    "Path": "/document-commands",
+    "Name": "Document Commands",
+    "Mappings": []
+  }
 ]
