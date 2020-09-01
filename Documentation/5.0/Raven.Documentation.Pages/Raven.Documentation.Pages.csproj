@@ -8,4 +8,8 @@
     <PackageReference Include="RavenDB.Client" Version="5.0.0-nightly-20200313-0646" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="studio\database\settings\images\" />
+  </ItemGroup>
+
 </Project>
